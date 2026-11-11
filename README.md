@@ -49,6 +49,7 @@ full stop                          # PR and babysit the current branch
 | `cstack-break` | "cstack-break" | The adversarial loop, on any change |
 | `full-stop` | "full stop" | File the PR, babysit it, stop when it is ready |
 | `full-send` | "full send" | The same, then merge |
+| `frontend-design` | building or restyling a UI | Anthropic's design guidance: a deliberate visual direction, not template defaults |
 
 Models for the adversaries and the arbiter are set in
 [`skills/cstack-break/config.md`](skills/cstack-break/config.md).
@@ -76,7 +77,7 @@ first, move it, then `install` from the new place.
 | --- | --- |
 | `cstack update` | `git pull --ff-only`, then `install` |
 | `cstack status` | the checkout, and what is linked where |
-| `cstack upstream [skill]` | changes upstream since tstack material was adapted |
+| `cstack upstream [skill]` | changes upstream since adapted material was copied |
 | `cstack uninstall` | remove every link into this checkout |
 
 Skills load when a session starts, so start a new thread after installing or updating.
@@ -101,4 +102,7 @@ Use your checkout's path in place of `~/cstack-t3`. `cstack status` prints it.
 
 `full-stop`, `full-send` and parts of `cstack-break` are adapted from
 [t3dotgg/tstack](https://github.com/t3dotgg/tstack) (MIT). See [`upstream.tsv`](upstream.tsv).
+`frontend-design` is Anthropic's skill from
+[anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)
+(Apache 2.0, see its `LICENSE.txt`); only the `description` is changed.
 Ideas from [pstack](https://github.com/cursor/plugins/tree/main/pstack) (MIT).

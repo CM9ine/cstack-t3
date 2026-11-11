@@ -34,6 +34,9 @@ Build the smallest version that meets the goal, following the patterns from step
 for what users of the code can see, not for its internals. Commit in small, logical commits.
 Do not push yet.
 
+If the feature adds or restyles UI, follow [frontend-design](../frontend-design/SKILL.md). Where
+the app already has a design system, keep to it and use the skill only for what it leaves open.
+
 ## 5. Prove it
 
 Run the repo's checks. Then show the feature working on the real surface, as a user would see
