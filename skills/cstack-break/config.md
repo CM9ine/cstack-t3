@@ -9,7 +9,7 @@ Both run in every round, whoever is developing. The name is what the record and 
 
 | Name | Provider | Model | Effort |
 | --- | --- | --- | --- |
-| Opus | Claude | `claude-opus-5-5` | high |
+| Fable | Claude | `claude-fable-5-2` | high |
 | Sol | Codex | `gpt-6.1-sol` | high |
 
 ## Arbiter
@@ -20,8 +20,8 @@ spots. The developer is the model running the main thread.
 | Developer's family | Arbiter | Provider | Model | Effort |
 | --- | --- | --- | --- | --- |
 | Claude | Sol | Codex | `gpt-6.1-sol` | xhigh |
-| Codex | Opus | Claude | `claude-opus-5-5` | xhigh |
-| Anything else | Opus | Claude | `claude-opus-5-5` | xhigh |
+| Codex | Fable | Claude | `claude-fable-5-2` | xhigh |
+| Anything else | Fable | Claude | `claude-fable-5-2` | xhigh |
 
 ## Effort option names
 

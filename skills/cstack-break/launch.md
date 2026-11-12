@@ -23,7 +23,7 @@ a message to an earlier child (`t3_thread_send`). An agent you no longer need ge
 ## In Claude Code without T3
 
 - **Claude model:** the `Agent` tool with `model` and `effort` from config.md (for example
-  `model: "opus"`, `effort: "high"`), `isolation: "worktree"`, and `run_in_background: false`.
+  `model: "fable"`, `effort: "high"`), `isolation: "worktree"`, and `run_in_background: false`.
   Claude Code puts these checkouts under `.claude/worktrees/` in the repo. Remove them after the
   round (`git worktree remove --force <path>`, then the empty `.claude/worktrees` folder if it
   was not there before), and never commit them.
