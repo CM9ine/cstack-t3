@@ -31,7 +31,7 @@ round	kind	adversaries	base	head	added	removed	started	note
 - `round`: 1, 2, 3… Never reused, also across post-PR rounds.
 - `kind`: `loop`, `post-pr-small` or `post-pr-full`.
 - `adversaries`: the names from [config.md](config.md) that ran this round, comma-separated
-  (`Fable,Sol`). Fill it in once both replied, including adversaries that found nothing.
+  (`Opus,Sol`). Fill it in once both replied, including adversaries that found nothing.
 - `base`, `head`: full SHAs. `head` is the commit the adversaries reviewed.
 - `added`, `removed`: from `git diff --numstat <base> <head>`, summed over the change.
 - `started`: ISO time. `note`: anything unusual (a goal change the user made, a failed launch).
@@ -46,7 +46,7 @@ id	round	by	severity	location	claim	repro	status	commit	arbiter	reopens	note
 
 - `id`: `r<round>-<n>`, such as `r2-3`.
 - `by`: who found it, using the adversary names in [config.md](config.md), joined with `+` when
-  both did (`Fable+Sol`).
+  both did (`Opus+Sol`).
 - `severity`: `blocker`, `should`, `nit`, `overbuild` or `concern`.
 - `location`: `file:line`. `claim`: one sentence. `repro`: the one-line command, or empty.
 - `status`, one of:
