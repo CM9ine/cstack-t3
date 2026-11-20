@@ -10,12 +10,13 @@ ids. Then start each agent with `delegate_task`:
 
 - `task`: the filled-in brief.
 - `target`: the model's `providerInstanceId` and `model`, and `options` with its effort option,
-  for example `{"effort": "high"}` for Claude or `{"reasoningEffort": "high"}` for Codex.
+  for example `{"effort": "high"}` for Claude, `{"reasoningEffort": "high"}` for Codex, or
+  `{"thought_level": "high"}` for Gemini (provider `antigravity`).
 - `isolation: "worktree"`, so it gets its own checkout of your current commit. Uncommitted
   edits stay out, which is why the change must be committed first.
 - `role: "review"`, `mode: "async"`, and a new `clientRequestId` every time.
 
-Start both adversaries in the same message. Then wait for T3's notifications: do not poll with
+Start all adversaries in the same message. Then wait for T3's notifications: do not poll with
 `task_status`, `sleep` or watchers. Every round and every dispute is a new `delegate_task`, never
 a message to an earlier child (`t3_thread_send`). An agent you no longer need gets
 `task_cancel`.
@@ -50,7 +51,13 @@ a message to an earlier child (`t3_thread_send`). An agent you no longer need ge
     --allowedTools "Bash Read Grep Glob Write Edit" < brief.txt > "$STATE/wt/r<round>-<name>.out")
   ```
 
+## Gemini without T3
+
+Gemini models run only through T3 Code's `antigravity` provider. There is no tested CLI route
+that sets both the model and the effort. Outside T3, follow "When no route works" for Gemini.
+
 ## When no route works
 
 If you cannot run one of the configured models, say so plainly and ask the user what to do.
-Never quietly run the loop with one family, or swap in a different model.
+Never quietly run the loop without one of the configured models, or swap in a different
+model.

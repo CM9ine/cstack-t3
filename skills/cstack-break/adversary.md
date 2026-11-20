@@ -1,8 +1,8 @@
 # Adversary brief
 
-Send this to each adversary, word for word, with only the `<...>` fields filled in. Both
-adversaries get the identical text, and every round uses the same text. Never add the round
-number, earlier findings, the developer's opinions, or the other adversary's existence: each
+Send this to each adversary, word for word, with only the `<...>` fields filled in. Every
+adversary gets the identical text, and every round uses the same text. Never add the round
+number, earlier findings, the developer's opinions, or the other adversaries' existence: each
 adversary must judge the code as if it were the first to see it.
 
 For a post-PR round, fill in the optional "Focus" line. Otherwise delete it.

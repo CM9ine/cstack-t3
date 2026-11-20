@@ -19,10 +19,10 @@ cstack-fix ───┘                         └─ full-send ("full send") �
    - `cstack-build`: learn the code, decide the data shape, build, prove it works in the app.
    - `cstack-fix`: reproduce, prove the cause, commit a failing test, fix, prove it.
 3. **Break loop.**
-   - **Each round:** fresh adversaries, one Claude and one Codex, get the identical brief and
-     try to break the change. Every finding needs a repro.
+   - **Each round:** fresh adversaries, one each from Claude, Codex and Gemini, get the
+     identical brief and try to break the change. Every finding needs a repro.
    - **The developer** reruns each repro, then fixes the finding or disputes it.
-   - **Disputes** go to an arbiter from the other model family.
+   - **Disputes** go to an arbiter from a different model family than the developer.
    - **Ending:** it repeats until a fresh round finds nothing, with no round limit.
 4. **PR.**
    - **Filing:** one PR, with every round's findings and stats in the description.
@@ -85,7 +85,8 @@ Skills load when a session starts, so start a new thread after installing or upd
 ## Requirements
 
 `git`, an authenticated `gh`, `python3`, and both the `claude` and `codex` CLIs logged in. The
-break loop needs one model from each family.
+break loop needs every model in its config. Gemini runs only through T3 Code's Antigravity
+provider, so outside T3 the loop asks what to do instead of running it.
 
 The skills read their own supporting files (briefs, config, the goal step). In T3 Code agents
 have full access, so this just works. In a plain Claude Code session with default permissions,

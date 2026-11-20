@@ -65,7 +65,7 @@ Anything that changes the code after the PR opened gets rechecked by
 | What changed | Recheck |
 | --- | --- |
 | Wording only (comments, docs), or a rebase with an identical patch (`git patch-id` unchanged) | None |
-| A small fix: a CI fix, a review-bot finding, a conflict resolution | `post-pr-small`: one round with both adversaries on the new changes, fix what it proves, no second round |
+| A small fix: a CI fix, a review-bot finding, a conflict resolution | `post-pr-small`: one round with all adversaries on the new changes, fix what it proves, no second round |
 | New behavior, a redesign, or a big change | `post-pr-full`: the full loop over the whole change |
 
 Batch fixes into one push when you can, then recheck that push once. After the recheck, update

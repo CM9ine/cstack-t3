@@ -6,14 +6,14 @@ description: Use when the user says "cstack-break", or when another cstack skill
 # cstack-break
 
 You are the developer. Fresh adversaries, one from each model family in
-[config.md](config.md), try to break the change. You fix what they prove. A new pair of fresh
+[config.md](config.md), try to break the change. You fix what they prove. A new set of fresh
 adversaries, who know nothing about earlier rounds, then gets the identical brief. The loop
 ends when a fresh round finds nothing real.
 
 | Role | Memory | Job |
 | --- | --- | --- |
 | Developer (you, the main thread) | Keeps context | Reruns every repro, fixes, keeps the record |
-| Adversaries (both in config.md) | Fresh every round | Break the change and prove each finding |
+| Adversaries (all in config.md) | Fresh every round | Break the change and prove each finding |
 | Arbiter (config.md) | Fresh per dispute | Settles findings you dispute |
 
 You never judge your own work alone. A finding that reproduces is fixed, or it goes to the
@@ -36,15 +36,15 @@ arbiter. You may not drop it, downgrade it, or call it out of scope on your own.
 ## A round
 
 1. **Record.** Append the round to `rounds.tsv` with the head SHA and diff size. Fill in
-   `adversaries` once both have replied.
-2. **Launch** both adversaries at the same time, fresh, with the brief in
+   `adversaries` once all have replied.
+2. **Launch** all adversaries at the same time, fresh, with the brief in
    [adversary.md](adversary.md). [launch.md](launch.md) says how in each harness. Change no code
    while they run.
-3. **Collect** both replies. If one fails or returns garbage, launch a fresh one with the same
+3. **Collect** every reply. If one fails or returns garbage, launch a fresh one with the same
    brief. Never count a failed adversary as a clean result.
 4. **Triage.** Log each finding in `findings.tsv` first, then:
-   - **Merge duplicates.** Two findings with the same cause become one row, with `by` naming
-     both adversaries.
+   - **Merge duplicates.** Findings with the same cause become one row, with `by` naming
+     every adversary that reported it.
    - **Filter repeats.** A finding the arbiter already closed in an earlier round is
      `filtered`, naming the earlier id. Only arbiter-closed findings are filtered. A finding
      you fixed earlier that is back is new: log it with `reopens` set.
@@ -59,8 +59,8 @@ arbiter. You may not drop it, downgrade it, or call it out of scope on your own.
      (`arbiter` = `dispute-upheld`).
    - **Overbuild flagged by one adversary:** remove the code (`removed`), or keep it with a
      one-line reason (`kept`). The reason goes in the PR.
-   - **Overbuild flagged by both adversaries on the same code in one round:** treat it as a
-     should. Remove it, or dispute it with the arbiter.
+   - **Overbuild flagged by two or more adversaries on the same code in one round:** treat it
+     as a should. Remove it, or dispute it with the arbiter.
    - **Nit:** `noted`. You may fix a nit that changes no behavior (a comment, a name, a doc)
      and mark it `fixed`. Never change behavior for a nit. List the rest as follow-ups.
    - **Concern:** `noted`. If it is about security, auth, data loss or permissions, try to
@@ -91,7 +91,7 @@ Run `scripts/report check` from this skill's folder and fix everything it lists.
 kind:
 
 - **`post-pr-small`** (a CI fix, a review-bot finding, a conflict resolution): exactly one round
-  with both adversaries. Fill in the brief's "Focus" line with the previous reviewed head, which
+  with all adversaries. Fill in the brief's "Focus" line with the previous reviewed head, which
   is the last `head` in `rounds.tsv`. Fix what it proves, as in step 5, with no second round.
 - **`post-pr-full`** (new behavior or a big change): the normal loop over the whole change,
   until a round is clean.
