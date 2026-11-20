@@ -1,16 +1,18 @@
 # cstack-break config
 
 Edit this file to change models. Use the model ids that T3 Code's `orchestrator_capabilities`
-lists, which are the same ids the `claude` and `codex` CLIs accept.
+lists.
 
 ## Adversaries
 
-Both run in every round, whoever is developing. The name is what the record and the PR show.
+All of them run in every round, whoever is developing. The name is what the record and the PR
+show.
 
 | Name | Provider | Model | Effort |
 | --- | --- | --- | --- |
 | Opus | Claude | `claude-opus-5-5` | high |
 | Sol | Codex | `gpt-6.2-sol` | high |
+| Neon | Antigravity | `gemini-4-neon` | high |
 
 ## Arbiter
 
@@ -26,5 +28,5 @@ spots. The developer is the model running the main thread.
 ## Effort option names
 
 T3 Code's `delegate_task` takes effort under the option id the model lists in
-`orchestrator_capabilities`: `effort` for Claude models, `reasoningEffort` for Codex models.
-The CLIs take `--effort <level>` (`claude`) and `-c model_reasoning_effort="<level>"` (`codex`).
+`orchestrator_capabilities`: `effort` for Claude models, `reasoningEffort` for Codex models,
+`thought_level` for Antigravity (Gemini) models.

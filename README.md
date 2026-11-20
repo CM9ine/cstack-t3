@@ -1,9 +1,9 @@
 # cstack
 
-Chris-Jay's agent skills for building features and fixing bugs. They work in Claude Code and
-Codex, and use [T3 Code](https://github.com/pingdotgg/t3code) features (cross-provider
-subagents, PR watching, browser and device previews) when they are available. One repo serves
-every machine in the [fleet](https://github.com/CM9ine/fleet).
+Chris-Jay's agent skills for building features and fixing bugs. They run in
+[T3 Code](https://github.com/pingdotgg/t3code) threads, driven by Claude Code or Codex, and rely
+on T3 features: cross-provider subagents, PR watching, and browser and device previews. One repo
+serves every machine in the [fleet](https://github.com/CM9ine/fleet).
 
 ## How it works
 
@@ -19,10 +19,10 @@ cstack-fix ───┘                         └─ full-send ("full send") �
    - `cstack-build`: learn the code, decide the data shape, build, prove it works in the app.
    - `cstack-fix`: reproduce, prove the cause, commit a failing test, fix, prove it.
 3. **Break loop.**
-   - **Each round:** fresh adversaries, one Claude and one Codex, get the identical brief and
-     try to break the change. Every finding needs a repro.
+   - **Each round:** fresh adversaries, one each from Claude, Codex and Gemini, get the
+     identical brief and try to break the change. Every finding needs a repro.
    - **The developer** reruns each repro, then fixes the finding or disputes it.
-   - **Disputes** go to an arbiter from the other model family.
+   - **Disputes** go to an arbiter from a different model family than the developer.
    - **Ending:** it repeats until a fresh round finds nothing, with no round limit.
 4. **PR.**
    - **Filing:** one PR, with every round's findings and stats in the description.
@@ -84,19 +84,9 @@ Skills load when a session starts, so start a new thread after installing or upd
 
 ## Requirements
 
-`git`, an authenticated `gh`, `python3`, and both the `claude` and `codex` CLIs logged in. The
-break loop needs one model from each family.
-
-The skills read their own supporting files (briefs, config, the goal step). In T3 Code agents
-have full access, so this just works. In a plain Claude Code session with default permissions,
-Claude Code only reads inside the project, and checks both the skill link and the checkout it
-points to. Allow both in `~/.claude/settings.json`:
-
-```json
-{ "permissions": { "additionalDirectories": ["~/.claude/skills", "~/cstack-t3"] } }
-```
-
-Use your checkout's path in place of `~/cstack-t3`. `cstack status` prints it.
+T3 Code, `git`, an authenticated `gh`, `python3`, and both the `claude` and `codex` CLIs logged
+in. The break loop needs every model in its config, so T3's Claude, Codex and Antigravity
+(Gemini) providers must be enabled.
 
 ## Credits
 

@@ -20,7 +20,7 @@ freeze it. No code changes before the OK.
 ## 2. See the bug happen
 
 Reproduce it yourself, on the surface where the user sees it: run the test, call the endpoint,
-drive the UI (in T3 Code, the `preview_*` tools for web and the `device_*` tools for iOS). Do
+drive the UI (T3's `preview_*` tools for web and `device_*` tools for iOS). Do
 not reason from the code alone.
 
 If it does not reproduce, narrow the conditions, build the trigger yourself, or add logging
