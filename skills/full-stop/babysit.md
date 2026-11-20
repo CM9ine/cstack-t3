@@ -8,7 +8,7 @@ the merge gate holds.
 Never write your own watcher, polling loop or `sleep` loop. Use one watcher per PR, because
 every watcher on a GitHub account shares one rate limit.
 
-**In T3 Code: `watch_pull_request`.** Handle the existing checks and comments first, then call
+**Use `watch_pull_request`.** Handle the existing checks and comments first, then call
 `watch_pull_request` and end your turn. T3 wakes you when a check fails, the required checks
 pass, someone comments or reviews, or the branch conflicts.
 
@@ -19,19 +19,6 @@ pass, someone comments or reviews, or the branch conflicts.
 - "Stopped watching, could not read it" usually means the GitHub rate limit is used up. Check
   `gh api rate_limit --jq .resources.graphql`. If `remaining` is near 0, wait for `reset` with
   one background command, then watch again. Never re-watch in a tight loop.
-
-**Everywhere else: `scripts/pr-wait`** from this skill's folder (use its absolute path):
-
-```sh
-pr-wait <pr> [--repo owner/name] [--until ready|green|any-change]
-```
-
-It prints one line per real event and exits 0 when the condition is met or the PR merges, 1
-when it needs you (a required check failed, a conflict, unresolved threads, the PR closed), and
-2 on bad input. Use `ready` when the repo has Greptile or Macroscope, `green` otherwise. In
-Claude Code, run it with the Monitor tool (`timeout_ms: 3600000`), so each line wakes you.
-Start it again after every push, after handling an exit 1, and after a resume. If it says
-another process already watches the PR, do not start a second one.
 
 When an event needs no action, end your turn without a message. Never post "still waiting".
 
@@ -121,7 +108,7 @@ The PR is ready when all of these hold on the latest commit:
 A question in a normal message goes unseen, and the thread looks finished. Use the harness's
 question tool: `AskUserQuestion` in Claude Code, `request_user_input` in Codex. Put all the
 context in the question: the PR link, what blocks you, and the options with your recommendation
-first. In T3 Code, call `unwatch_pull_request` before asking.
+first. Call `unwatch_pull_request` before asking.
 
 Ask only when you cannot go on alone: you cannot prove a change, the merge gate cannot pass and
 you cannot fix that, the next step deletes data or touches production or anything outside the

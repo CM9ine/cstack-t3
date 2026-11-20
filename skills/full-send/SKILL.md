@@ -53,6 +53,6 @@ Follow [full-stop](../full-stop/SKILL.md) with these changes:
 4. Report in your final message: the PR link, the merge commit, the proof, the break-loop
    totals, anything escalated, and every decision you made for the user.
 
-If you have to stop before the merge, call `unwatch_pull_request` first (in T3 Code) and ask as
+If you have to stop before the merge, call `unwatch_pull_request` first and ask as
 [babysit.md](../full-stop/babysit.md) says. If no question tool works, leave the PR open and
 unmerged, and start your final message with the question.

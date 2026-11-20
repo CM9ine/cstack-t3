@@ -42,10 +42,8 @@ the app already has a design system, keep to it and use the skill only for what 
 Run the repo's checks. Then show the feature working on the real surface, as a user would see
 it. Green tests alone are not proof.
 
-- **Web UI:** in T3 Code, the `preview_*` browser tools. Elsewhere, whatever browser automation
-  or screenshot tool the harness has.
-- **iOS or macOS app:** in T3 Code, the `device_*` tools. Elsewhere, whatever simulator or
-  device tooling the harness has.
+- **Web UI:** T3's `preview_*` browser tools.
+- **iOS or macOS app:** T3's `device_*` tools.
 - **CLI, server or library:** run the command or call the endpoint and capture the output.
 
 Write the commands, outputs and screenshot paths to `$STATE/proof.md` ([record.md](../cstack-break/record.md)).

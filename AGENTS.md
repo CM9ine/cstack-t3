@@ -14,8 +14,9 @@ on every machine, so a change here reaches every harness on the next `cstack upd
   What the skill does goes in the body.
 - Skills refer to each other by relative path (`../cstack-break/SKILL.md`). That works because
   every skill is linked into the same folder.
-- Every skill must work in Claude Code and Codex, inside and outside T3 Code. When a step uses a
-  T3 tool, give the fallback in the same place.
+- Skills always run in a T3 Code thread, driven by Claude Code or Codex. Use T3 tools directly,
+  with no fallback for running outside T3. Where Claude Code and Codex differ (such as the
+  question tool), name both.
 - Shared state goes in the record files described in `skills/cstack-break/record.md`, never in
   the conversation alone.
 - Model names live only in `skills/cstack-break/config.md`.

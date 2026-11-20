@@ -44,7 +44,7 @@ merged it, report that instead.
 - **Waiting on a human:** only human approval is left. Confirm that is the real blocker.
 - **Blocked:** say what stops it, what you tried, and what is needed.
 
-In T3 Code, call `unwatch_pull_request` before you hand off or ask a question. A watched thread
+Call `unwatch_pull_request` before you hand off or ask a question. A watched thread
 stays in "Working" and out of the user's inbox.
 
 Report: the PR link, the final head SHA, the state (ready, waiting or blocked), how the change

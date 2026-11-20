@@ -1,8 +1,7 @@
 # cstack-break config
 
 Edit this file to change models. Use the model ids that T3 Code's `orchestrator_capabilities`
-lists. Claude and Codex ids are the same ids the `claude` and `codex` CLIs accept. Gemini runs
-only through T3.
+lists.
 
 ## Adversaries
 
@@ -30,5 +29,4 @@ spots. The developer is the model running the main thread.
 
 T3 Code's `delegate_task` takes effort under the option id the model lists in
 `orchestrator_capabilities`: `effort` for Claude models, `reasoningEffort` for Codex models,
-`thought_level` for Antigravity (Gemini) models. The CLIs take `--effort <level>` (`claude`) and
-`-c model_reasoning_effort="<level>"` (`codex`).
+`thought_level` for Antigravity (Gemini) models.
