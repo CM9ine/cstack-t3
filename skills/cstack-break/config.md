@@ -12,7 +12,7 @@ show.
 | --- | --- | --- | --- |
 | Opus | Claude | `claude-opus-5-5` | high |
 | Sol | Codex | `gpt-6.2-sol` | high |
-| Neon | Antigravity | `gemini-4-neon` | high |
+| Neon | Antigravity | `gemini-4-neon` | medium |
 
 ## Arbiter
 
