@@ -10,7 +10,7 @@ ids. Then start each agent with `delegate_task`:
 - `task`: the filled-in brief.
 - `target`: the model's `providerInstanceId` and `model`, and `options` with its effort option,
   for example `{"effort": "high"}` for Claude, `{"reasoningEffort": "high"}` for Codex, or
-  `{"thought_level": "high"}` for Gemini (provider `antigravity`).
+  `{"thought_level": "medium"}` for Gemini (provider `antigravity`).
 - `isolation: "worktree"`, so it gets its own checkout of your current commit. Uncommitted
   edits stay out, which is why the change must be committed first.
 - `role: "review"`, `mode: "async"`, and a new `clientRequestId` every time.
